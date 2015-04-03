@@ -29,7 +29,7 @@ public class DbConnections {
 		if(conn!=null){
 			try {
 				Statement smt = conn.createStatement();
-				@SuppressWarnings("unused")
+				//@SuppressWarnings("unused")
 				ResultSet rs1 =smt.executeQuery("use prashant");
 				ResultSet rs =smt.executeQuery(query);
 				if(rs.next()){
@@ -48,6 +48,20 @@ public class DbConnections {
 		}
 		else{
 			index.res.setText("Recheck Connection");
+		}
+	}
+	static public void updateQuery(String query){
+		if(conn!=null){
+			try{
+				Statement stm = conn.createStatement();
+				ResultSet rs1=stm.executeQuery("use prashant");
+				int r=stm.executeUpdate(query);
+				if(r>0){
+					index.res.setText(r+" rows affected");
+				}
+			}catch(SQLException e){
+				index.res.setText("Exception");
+			}
 		}
 	}
 

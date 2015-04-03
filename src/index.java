@@ -8,7 +8,7 @@ public class index{
 	static JTextField usertext = new JTextField(20);
 	static JTextField pwdtext = new JTextField(20);
 	static JLabel conDisp;
-	static JTextArea qry,res;
+	static JTextArea res,qry,upd;
 	static JButton but;
 //	public index(){
 //		GridBagLayout gb = new GridBagLayout();
@@ -46,7 +46,7 @@ public class index{
 		indbut.setActionCommand("next");
 		index.add(indbut);
 		frame.setContentPane(index);
-		//frame.setSize(1000,1000);
+		frame.setSize(300,300);
 		frame.setVisible(true);
 		but = new JButton(" << Back");
 		but.setActionCommand("Previous");
@@ -57,6 +57,7 @@ public class index{
 	public static void prepareQueryPanel(){
 //		JLabel disp = new JLabel("panel2");
 //		FlowLayout g1= new FlowLayout();
+//		GridLayout g1 = new GridLayout(6,0);
 //		query.setLayout(g1);
 		JButton conCheck = new JButton("Recheck connection");
 		conDisp = new JLabel("");
@@ -67,16 +68,22 @@ public class index{
 		query.add(but);
 	}
 	public static void extraQueryPanel(){
-		qry = new JTextArea("");
-		res=new JTextArea("");
+		qry = new JTextArea(1,10);
+		upd = new JTextArea(1,10);
+		res=new JTextArea("See result here");
 		query.remove(but);
 		JLabel enter = new JLabel("Enter ur query here");
 		JButton submit = new JButton("Submit");
-		submit.setActionCommand("submit");
+		submit.setActionCommand("select");
 		submit.addActionListener(new handleEvents());
+		JButton update = new JButton("Update");
+		update.setActionCommand("update");
+		update.addActionListener(new handleEvents());
 		query.add(enter);
 		query.add(qry);
 		query.add(submit);
+		query.add(upd);
+		query.add(update);
 		query.add(res);
 		query.add(but);
 	}
