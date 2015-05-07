@@ -1,11 +1,7 @@
 import java.sql.*;
 public class DbConnections {
 		static Connection conn;
-<<<<<<< HEAD
 		static String url="jdbc:mysql://localhost:3306/prashant";
-=======
-		static String url="jdbc:mysql://localhost:3306/";
->>>>>>> b9bf3e77e971a8e72c1345436eaca99652b6501c
 		static String username="root";
 		static String password="prashantsurya";
 		
@@ -34,7 +30,6 @@ public class DbConnections {
 			try {
 				Statement smt = conn.createStatement();
 				//@SuppressWarnings("unused")
-<<<<<<< HEAD
 				ResultSet rs =smt.executeQuery(query);
 				ResultSetMetaData rsmd=rs.getMetaData();
 				int count=rsmd.getColumnCount();
@@ -59,15 +54,6 @@ public class DbConnections {
 				}
 				else{
 					index.res.setText("No results found");
-=======
-				ResultSet rs1 =smt.executeQuery("use prashant");
-				ResultSet rs =smt.executeQuery(query);
-				if(rs.next()){
-					index.res.setText("Query successful");
-				}
-				else{
-					index.res.setText("Query unsuccessful");
->>>>>>> b9bf3e77e971a8e72c1345436eaca99652b6501c
 				}
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -85,10 +71,6 @@ public class DbConnections {
 		if(conn!=null){
 			try{
 				Statement stm = conn.createStatement();
-<<<<<<< HEAD
-=======
-				ResultSet rs1=stm.executeQuery("use prashant");
->>>>>>> b9bf3e77e971a8e72c1345436eaca99652b6501c
 				int r=stm.executeUpdate(query);
 				if(r>0){
 					index.res.setText(r+" rows affected");
